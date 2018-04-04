@@ -135,9 +135,9 @@ body, .app {
 
 .book-top {
   position: relative;
-  height: 200px;
+  /*height: 200px;*/
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .book-shelf-changer {
@@ -166,6 +166,11 @@ body, .app {
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
+}
+.book-cover > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .book-cover-title {
   padding: 20px 10px 0;
