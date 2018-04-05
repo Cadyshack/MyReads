@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 
 class Book extends Component {
 
 	render() {
 
-
 		return(
-
 			<div className="book">
         <div className="book-top">
           <div className="book-cover">
-          	<img src={this.props.img} />
+          	<img src={this.props.img} alt={this.props.title + " book cover"} />
           </div>
           <div className="book-shelf-changer">
             <select value={this.props.shelf}>

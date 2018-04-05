@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BookShelf from './BookShelf.js';
-import Book from './Book.js';
 
-class MyReads extends Component{
+
+class MyReads extends Component {
 
   render(){
 
@@ -14,7 +14,6 @@ class MyReads extends Component{
         </div>
         <div className="list-books-content">
           <div>
-
             <BookShelf
             	title='Currently Reading'
             	books={this.props.books}
@@ -32,9 +31,6 @@ class MyReads extends Component{
             />
           </div>
         </div>
-
-
-
         <div className="open-search">
           <Link to="/search" >Add a book</Link>
         </div>
