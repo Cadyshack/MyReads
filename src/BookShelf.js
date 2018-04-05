@@ -3,10 +3,12 @@ import Book from './Book.js';
 
 class BookShelf extends Component{
 
+
+
+
   render(){
     const { myBooks, title, shelf } = this.props;
-    
-    let bookResult;
+
 
 
     return (
@@ -20,13 +22,15 @@ class BookShelf extends Component{
           <ol className="books-grid">
             {
             myBooks.filter( (book) => book.shelf === shelf )
-                .map( book => (
+                .map( (book) => (
                   <li key={book.id}>
                     <Book
                       title={book.title}
                       authors={book.authors}
                       shelf={book.shelf}
                       img={book.imageLinks.thumbnail}
+                      onBookUpdate={(shelf) => this.props.onChange(book, shelf)}
+
                       />
                   </li>
                 ))

@@ -4,9 +4,9 @@ import * as BooksAPI from './BooksAPI.js';
 
 class Book extends Component {
 
-	
+
 	shelfChange = (e) => {
-		
+		this.props.onBookUpdate(e.target.value)
 	}
 
 	render() {

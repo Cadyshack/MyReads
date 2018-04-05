@@ -16,6 +16,12 @@ class App extends React.Component {
     })
   }
 
+  updateBook = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+    BooksAPI.getAll().then((books) => {
+      this.setState({ myBooks: books })
+    })
+  }
 
   render() {
 
@@ -29,7 +35,8 @@ class App extends React.Component {
       <Route path="/" exact render={() => (
         <MyReads
           myBooks={this.state.myBooks}
-          onShelfChange={}
+          onUpdate={ this.updateBook }
+
         />
         )} />
 
@@ -38,4 +45,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

@@ -5,7 +5,8 @@ import BookShelf from './BookShelf.js';
 
 class MyReads extends Component {
 
-	render(){
+
+  render(){
 
 		return (
 			<div className="list-books">
@@ -18,16 +19,20 @@ class MyReads extends Component {
 							title='Currently Reading'
 							myBooks={this.props.myBooks}
 							shelf='currentlyReading'
+              onChange={this.props.onUpdate}
+
 						/>
 						<BookShelf
 							myBooks={this.props.myBooks}
 							title='Want to Read'
 							shelf='wantToRead'
+              onChange={this.props.onUpdate}
 						/>
 						<BookShelf
 							myBooks={this.props.myBooks}
 							title='Read'
 							shelf='read'
+              onChange={this.props.onUpdate}
 						/>
 					</div>
 				</div>
