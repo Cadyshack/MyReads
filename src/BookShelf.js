@@ -4,8 +4,8 @@ import Book from './Book.js';
 class BookShelf extends Component{
 
   render(){
-    const { books, title } = this.props;
-    let shelf = this.props.shelf;
+    const { myBooks, title, shelf } = this.props;
+    
     let bookResult;
 
 
@@ -19,7 +19,7 @@ class BookShelf extends Component{
         <div className="bookshelf-books">
           <ol className="books-grid">
             {
-            books.filter( (book) => book.shelf === shelf )
+            myBooks.filter( (book) => book.shelf === shelf )
                 .map( book => (
                   <li key={book.id}>
                     <Book
