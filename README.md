@@ -10,11 +10,11 @@ To get started developing right away:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-##Prerequisites
+## Prerequisites
 
 You'll need npm installed on your machine in order to install all the dependencies found in `package.json`
 
-##Installing
+## Installing
 
 As stated above, simply install all project dependencies with `npm install`:
 
