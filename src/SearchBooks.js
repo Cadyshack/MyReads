@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import Book from './Book.js';
 import * as BooksAPI from './BooksAPI';
 
-
-
-
 class SearchBooks extends Component{
   state = {
     query: '',
@@ -43,11 +40,9 @@ class SearchBooks extends Component{
     this.render();
   };
 
-
   render(){
     const { result } = this.state;
     let bookSearch = this.mapSearchResult(result);
-
 
     return (
       <div className="search-books">

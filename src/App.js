@@ -24,7 +24,6 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div className="app">
       <Route path="/search" render={() => (
@@ -37,10 +36,8 @@ class App extends React.Component {
         <MyReads
           myBooks={this.state.myBooks}
           onBookUpdate={ this.updateBook }
-
         />
         )} />
-
       </div>
     )
   }

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import defaultImage from './imgs/default.png';
 
-
-
 class Book extends Component {
-
-
 	shelfChange = (e) => {
 		this.props.onBookUpdate(e.target.value)
 	}
@@ -34,7 +30,6 @@ class Book extends Component {
 			</div>
 		);
 	}
-
 }
 
 export default Book;
