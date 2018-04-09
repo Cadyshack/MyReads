@@ -4,11 +4,14 @@ import Book from './Book.js';
 import * as BooksAPI from './BooksAPI';
 
 
+
+
 class SearchBooks extends Component{
   state = {
     query: '',
     result: []
   }
+
   updateQuery = (search) => {
     BooksAPI.search(search)
     .then( res => {
@@ -17,30 +20,29 @@ class SearchBooks extends Component{
       } else if (res.error) {
         this.setState({query: search, result: []})
       } else {
-        console.log(res);
         this.setState({query: search, result: res})
       }
     })
   }
 
-  mapSearchResult = (resultBooks) => {
-    return resultBooks.map((resultBook) => {
-        const myBook = this.state.books.find(book => book.id === resultBook.id);
-        return {
-            id: resultBook.id,
-            title: resultBook.title,
-            authors: resultBook.authors,
-            shelf: myBook ? myBook.shelf : 'none',
-            imageLinks: resultBook.imageLinks ? resultBook.imageLinks : undefined
-        };
+  mapSearchResult = (result) => {
+    return result.map((book) => {
+      const myBook = this.props.myBooks.find( myBook => myBook.id === book.id);
+      return {
+          id: book.id,
+          title: book.title,
+          authors: book.authors ? book.authors : 'Unknown',
+          shelf: myBook ? myBook.shelf : 'none',
+          imageLinks: book.imageLinks ? book.imageLinks.thumbnail : undefined
+      };
     });
-};
-
+    this.render();
+  };
 
 
   render(){
-    const { query, result } = this.state;
-    let savedBooks = this.props.books;
+    const { result } = this.state;
+    let bookSearch = this.mapSearchResult(result);
 
 
     return (
@@ -60,15 +62,16 @@ class SearchBooks extends Component{
           </div>
         </div>
         <div className="search-books-results">
-          { result.length > 0 ? (
+          { bookSearch.length > 0 ? (
           <ol className="books-grid">
-            {result.map( book => (
+            {bookSearch.map( book => (
               <li key={book.id}>
                 <Book
                   title={book.title}
                   authors={book.authors}
                   shelf={book.shelf}
-                  img={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : undefined}
+                  img={book.imageLinks}
+                  onBookUpdate={(shelf) => this.props.onBookUpdate(book, shelf)}
                   />
               </li>
             ))}

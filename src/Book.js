@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import defaultImage from './imgs/default.png';
 
 
 
@@ -10,12 +11,13 @@ class Book extends Component {
 	}
 
 	render() {
-
+		const image = this.props.img ? this.props.img : defaultImage
 		return(
 			<div className="book">
 				<div className="book-top">
 					<div className="book-cover">
-						<img src={this.props.img} alt={this.props.title + " book cover"} />
+
+						<img src={image} alt={this.props.title + " book cover"} />
 					</div>
 					<div className="book-shelf-changer">
 						<select value={this.props.shelf} onChange={this.shelfChange} >

@@ -3,13 +3,8 @@ import Book from './Book.js';
 
 class BookShelf extends Component{
 
-
-
-
   render(){
     const { myBooks, title, shelf } = this.props;
-
-
 
     return (
 
@@ -26,9 +21,9 @@ class BookShelf extends Component{
                   <li key={book.id}>
                     <Book
                       title={book.title}
-                      authors={book.authors}
+                      authors={book.authors ? book.authors : 'Unknown'}
                       shelf={book.shelf}
-                      img={book.imageLinks.thumbnail}
+                      img={book.imageLinks ? book.imageLinks.thumbnail : undefined}
                       onBookUpdate={(shelf) => this.props.onBookUpdate(book, shelf)}
 
                       />
