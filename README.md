@@ -18,7 +18,7 @@ You'll need npm installed on your machine in order to install all the dependenci
 
 As stated above, simply install all project dependencies with `npm install`:
 
-* In Terminal, navigate to the wherever you downloaded the MyReads project files, and then from within this folder, inside Terminal type `npm install`
+* In Terminal, navigate to the MyReads folder holding all the files downloaded from this repository, then from within this folder inside Terminal type `npm install`
 * Once all the dependencies are installed, from within this same project folder inside Terminal, type `npm start` and the development server will start.
 
 
