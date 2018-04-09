@@ -19,20 +19,20 @@ class MyReads extends Component {
 							title='Currently Reading'
 							myBooks={this.props.myBooks}
 							shelf='currentlyReading'
-              onChange={this.props.onUpdate}
+              onBookUpdate={this.props.onBookUpdate}
 
 						/>
 						<BookShelf
 							myBooks={this.props.myBooks}
 							title='Want to Read'
 							shelf='wantToRead'
-              onChange={this.props.onUpdate}
+              onBookUpdate={this.props.onBookUpdate}
 						/>
 						<BookShelf
 							myBooks={this.props.myBooks}
 							title='Read'
 							shelf='read'
-              onChange={this.props.onUpdate}
+              onBookUpdate={this.props.onBookUpdate}
 						/>
 					</div>
 				</div>

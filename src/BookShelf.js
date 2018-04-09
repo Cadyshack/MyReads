@@ -29,7 +29,7 @@ class BookShelf extends Component{
                       authors={book.authors}
                       shelf={book.shelf}
                       img={book.imageLinks.thumbnail}
-                      onBookUpdate={(shelf) => this.props.onChange(book, shelf)}
+                      onBookUpdate={(shelf) => this.props.onBookUpdate(book, shelf)}
 
                       />
                   </li>
