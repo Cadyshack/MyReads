@@ -25,6 +25,10 @@ class SearchBooks extends Component{
     })
   }
 
+  /* mapSearchResult function is based on
+   Slack comment  https://udacity-react.slack.com/files/U9826LWAG/F9Q49PZE3/my_mapsearchresult_func.js
+   from user dani (U9826LWAG) */
+
   mapSearchResult = (result) => {
     return result.map((book) => {
       const myBook = this.props.myBooks.find( myBook => myBook.id === book.id);
