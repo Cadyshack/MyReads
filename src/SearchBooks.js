@@ -11,7 +11,6 @@ class SearchBooks extends Component{
     result: []
   }
 
-
   updateQuery = search => {
     this.setState({query: search}, () => {
       this.debounceUpdateSearch(this.state.query)
