@@ -17,9 +17,11 @@ class App extends React.Component {
   }
 
   updateBook = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-    BooksAPI.getAll().then((books) => {
+    BooksAPI.update(book, shelf)
+    .then( () => {
+      BooksAPI.getAll().then((books) => {
       this.setState({ myBooks: books })
+      })
     })
   }
 
@@ -28,13 +30,13 @@ class App extends React.Component {
       <div className="app">
       <Route path="/search" render={() => (
         <SearchBooks
-          myBooks={this.state.myBooks}
+          myBooks={ this.state.myBooks }
           onBookUpdate={ this.updateBook }
         />
         )}/>
       <Route path="/" exact render={() => (
         <MyReads
-          myBooks={this.state.myBooks}
+          myBooks={ this.state.myBooks }
           onBookUpdate={ this.updateBook }
         />
         )} />
