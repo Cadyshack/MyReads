@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Book from './Book.js';
 
-class BookShelf extends Component{
+class BookShelf extends Component {
 
   render(){
     const { myBooks, title, shelf } = this.props;
