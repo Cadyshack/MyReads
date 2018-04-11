@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Book from './Book.js';
 import * as BooksAPI from './BooksAPI';
+import { debounce } from 'throttle-debounce';
+
 
 class SearchBooks extends Component{
   state = {
@@ -9,7 +11,14 @@ class SearchBooks extends Component{
     result: []
   }
 
-  updateQuery = (search) => {
+
+  updateQuery = search => {
+    this.setState({query: search}, () => {
+      this.debounceUpdateSearch(this.state.query)
+    });
+  }
+
+  updateSearch = (search) => {
     BooksAPI.search(search)
     .then( res => {
       if ( search === '') {
@@ -21,6 +30,9 @@ class SearchBooks extends Component{
       }
     })
   }
+
+  debounceUpdateSearch = debounce(500, this.updateSearch);
+
 
   /* mapSearchResult function is based on
    Slack comment  https://udacity-react.slack.com/files/U9826LWAG/F9Q49PZE3/my_mapsearchresult_func.js
@@ -37,7 +49,6 @@ class SearchBooks extends Component{
           imageLinks: book.imageLinks ? book.imageLinks.thumbnail : undefined
       };
     });
-    this.render();
   };
 
   render(){
@@ -75,12 +86,10 @@ class SearchBooks extends Component{
               </li>
             ))}
           </ol>
-
           ) : (
-            <div>No results to show</div>
+            this.state.query === '' ? (<div></div>) : (<div>No books found</div>)
           )
         }
-
         </div>
       </div>
 
